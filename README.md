@@ -17,4 +17,4 @@ The following auxiliary files are included:
 [1] L'. Dvořáková, L. Mol, and E. Pelantová, arXiv preprint, 2026.\
 [2] [GitHub Repository: Ternary Rich Words Verification](https://github.com/japeltom/ternary-rich-words-verification)\
 [3] J. D. Currie, L. Mol, and J. Peltomäki, The repetition threshold for ternary rich words, *Electronic Journal of Combinatorics* **32**(2) (2025), article #P2.55. [DOI](https://doi.org/10.37236/13499)\
-[4] M. Rubinchik and A. M. Shur, EERTREE: An efficient data structure for processing palindromes in strings, *European Journal of Combinatorics* **68** (2018), 249-265.
+[4] M. Rubinchik and A. M. Shur, EERTREE: An efficient data structure for processing palindromes in strings, *European Journal of Combinatorics* **68** (2018), 249-265. [DOI](https://doi.org/10.1016/j.ejc.2017.07.021)
