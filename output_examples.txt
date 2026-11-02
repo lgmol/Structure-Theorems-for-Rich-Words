@@ -1,0 +1,1830 @@
+
+------ Example 3.4 ------
+
+The maximal compatible subsets of S=['01', '0121', '012121', '02', '022', '0212'] are:
+[['01', '0121', '012121'], ['01', '02', '022'], ['02', '022', '0212']]
+
+--------------------------------------------------------------
+
+
+------ Example 3.5 ------
+
+Searching for possible returns to 00 in an infinite 14/5-power-free word over 2 letters containing the factor 0011011.
+
+-----
+000
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 000.
+-----
+001
+-----
+0010
+-----
+00100
+New possible return to the marker: 001
+-----
+00101
+Precondition: RichnessAndCompatibilityCondition(00,['0011011'])
+This word is incompatible with the marker, as their longest common prefix does not contain 101.
+-----
+0011
+-----
+00110
+-----
+001100
+New possible return to the marker: 0011
+-----
+001101
+-----
+0011010
+-----
+00110100
+Precondition: RichnessAndCompatibilityCondition(00,['0011011'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+00110101
+-----
+001101010
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 101010.
+-----
+001101011
+-----
+0011010110
+-----
+00110101100
+New possible return to the marker: 001101011
+-----
+00110101101
+-----
+001101011010
+-----
+0011010110100
+Precondition: RichnessAndCompatibilityCondition(00,['0011011'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+0011010110101
+-----
+00110101101010
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 101010.
+-----
+00110101101011
+-----
+001101011010110
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 01101011010110.
+-----
+001101011010111
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 111.
+-----
+001101011011
+Precondition: RichnessAndCompatibilityCondition(00,['0011011'])
+This word is incompatible with the marker, as their longest common prefix does not contain 11011.
+-----
+0011010111
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 111.
+-----
+0011011
+-----
+00110110
+-----
+001101100
+New possible return to the marker: 0011011
+-----
+001101101
+-----
+0011011010
+-----
+00110110100
+Precondition: RichnessAndCompatibilityCondition(00,['0011011'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+00110110101
+-----
+001101101010
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 101010.
+-----
+001101101011
+-----
+0011011010110
+-----
+00110110101100
+Precondition: RichnessAndCompatibilityCondition(00,['0011011'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+00110110101101
+-----
+001101101011010
+-----
+0011011010110100
+Precondition: RichnessAndCompatibilityCondition(00,['0011011'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+0011011010110101
+-----
+00110110101101010
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 101010.
+-----
+00110110101101011
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 10110101101011.
+-----
+001101101011011
+-----
+0011011010110110
+-----
+00110110101101100
+New possible return to the marker: 001101101011011
+-----
+00110110101101101
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 101101101.
+-----
+0011011010110111
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 111.
+-----
+0011011010111
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 111.
+-----
+0011011011
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 011011011.
+-----
+00110111
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 111.
+-----
+00111
+Precondition: PowerSuffixCondition(14,5)
+This word contains the 14/5-power 111.
+
+If z is an infinite 14/5-power-free rich word over 2 letters containing the factor 0011011, then the only possible returns to 00 in z are:
+['001', '0011', '001101011', '0011011', '001101101011011']
+
+
+--------------------------------------------------------------
+
+
+------ Example 3.6 ------
+
+Let z be an infinite 16/7-power-free rich word over 3 letters.
+
+We first show that z must contain some permutation of the word 001011010020220200202202001002.
+By a backtracking search, the longest 16/7-power-free rich word over 3 letters with no permutation of 001011010020220200202202001002 has length 681.
+So by permuting the letters of z if necessary, we may assume that z contains 001011010020220200202202001002.
+
+Now we find all possible returns to 0010110100 in z compatible with 001011010020220200202202001002.
+-----
+00101101000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+00101101001
+-----
+001011010010
+-----
+0010110100100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 00100.
+-----
+0010110100101
+-----
+00101101001010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 01010.
+-----
+00101101001011
+-----
+001011010010110
+-----
+0010110100101100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+0010110100101101
+-----
+00101101001011010
+-----
+001011010010110100
+New possible return to the marker: 00101101
+-----
+001011010010110101
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 10101.
+-----
+001011010010110102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2.
+-----
+00101101001011011
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 1011011.
+-----
+00101101001011012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2.
+-----
+0010110100101102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2.
+-----
+001011010010111
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 111.
+-----
+001011010010112
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2.
+-----
+00101101001012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2.
+-----
+0010110100102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2.
+-----
+001011010011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+001011010012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2.
+-----
+00101101002
+-----
+001011010020
+-----
+0010110100200
+-----
+00101101002000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+00101101002001
+-----
+001011010020010
+-----
+0010110100200100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 00100.
+-----
+0010110100200101
+-----
+00101101002001010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 01010.
+-----
+00101101002001011
+-----
+001011010020010110
+-----
+0010110100200101100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+0010110100200101101
+-----
+00101101002001011010
+-----
+001011010020010110100
+New possible return to the marker: 00101101002
+-----
+001011010020010110101
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 10101.
+-----
+001011010020010110102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002001011011
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 1011011.
+-----
+00101101002001011012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100200101102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020010111
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 111.
+-----
+001011010020010112
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002001012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100200102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+001011010020012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002002
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 2002.
+-----
+0010110100201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202
+-----
+00101101002020
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 02020.
+-----
+00101101002021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022
+-----
+001011010020220
+-----
+0010110100202200
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+0010110100202201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202
+-----
+00101101002022020
+-----
+001011010020220200
+-----
+0010110100202202000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+0010110100202202001
+-----
+00101101002022020010
+-----
+001011010020220200100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 00100.
+-----
+001011010020220200101
+-----
+0010110100202202001010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 01010.
+-----
+0010110100202202001011
+-----
+00101101002022020010110
+-----
+001011010020220200101100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+001011010020220200101101
+-----
+0010110100202202001011010
+-----
+00101101002022020010110100
+New possible return to the marker: 0010110100202202
+-----
+00101101002022020010110101
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 10101.
+-----
+00101101002022020010110102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202001011011
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 1011011.
+-----
+0010110100202202001011012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200101102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020010111
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 111.
+-----
+00101101002022020010112
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202001012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+00101101002022020012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002
+-----
+00101101002022020020
+-----
+001011010020220200200
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0200200.
+-----
+001011010020220200201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202
+-----
+0010110100202202002020
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 02020.
+-----
+0010110100202202002021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202002022
+-----
+00101101002022020020220
+-----
+001011010020220200202200
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+001011010020220200202201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202202
+-----
+0010110100202202002022020
+-----
+00101101002022020020220200
+-----
+001011010020220200202202000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+001011010020220200202202001
+-----
+0010110100202202002022020010
+-----
+00101101002022020020220200100
+-----
+001011010020220200202202001000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+001011010020220200202202001001
+-----
+0010110100202202002022020010010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0010010.
+-----
+0010110100202202002022020010011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+0010110100202202002022020010012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001002
+-----
+0010110100202202002022020010020
+-----
+00101101002022020020220200100200
+-----
+001011010020220200202202001002000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+001011010020220200202202001002001
+-----
+0010110100202202002022020010020010
+-----
+00101101002022020020220200100200100
+-----
+001011010020220200202202001002001000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+001011010020220200202202001002001001
+-----
+0010110100202202002022020010020010010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0010010.
+-----
+0010110100202202002022020010020010011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+0010110100202202002022020010020010012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001002001002
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 02001002001002.
+-----
+00101101002022020020220200100200101
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 101 which is not a palindrome.
+-----
+00101101002022020020220200100200102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002022020010020011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+0010110100202202002022020010020012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001002002
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2002 which is not a palindrome.
+-----
+00101101002022020020220200100201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020020220200100202
+-----
+001011010020220200202202001002020
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 02020.
+-----
+001011010020220200202202001002021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202202001002022
+-----
+0010110100202202002022020010020220
+-----
+00101101002022020020220200100202200
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+00101101002022020020220200100202201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020020220200100202202
+-----
+001011010020220200202202001002022020
+-----
+0010110100202202002022020010020220200
+-----
+00101101002022020020220200100202202000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+00101101002022020020220200100202202001
+-----
+001011010020220200202202001002022020010
+-----
+0010110100202202002022020010020220200100
+-----
+00101101002022020020220200100202202001000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+00101101002022020020220200100202202001001
+-----
+001011010020220200202202001002022020010010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0010010.
+-----
+001011010020220200202202001002022020010011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+001011010020220200202202001002022020010012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020020220200100202202001002
+-----
+001011010020220200202202001002022020010020
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 00202202001002022020010020.
+-----
+001011010020220200202202001002022020010021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202202001002022020010022
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 22 which is not a palindrome.
+-----
+0010110100202202002022020010020220200101
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 101 which is not a palindrome.
+-----
+0010110100202202002022020010020220200102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001002022020011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+001011010020220200202202001002022020012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020020220200100202202002
+-----
+001011010020220200202202001002022020020
+-----
+0010110100202202002022020010020220200200
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0200200.
+-----
+0010110100202202002022020010020220200201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202002022020010020220200202
+-----
+00101101002022020020220200100202202002020
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 02020.
+-----
+00101101002022020020220200100202202002021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020020220200100202202002022
+-----
+001011010020220200202202001002022020020220
+-----
+0010110100202202002022020010020220200202200
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+0010110100202202002022020010020220200202201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202002022020010020220200202202
+-----
+00101101002022020020220200100202202002022020
+-----
+001011010020220200202202001002022020020220200
+-----
+0010110100202202002022020010020220200202202000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+0010110100202202002022020010020220200202202001
+-----
+00101101002022020020220200100202202002022020010
+-----
+001011010020220200202202001002022020020220200100
+-----
+0010110100202202002022020010020220200202202001000
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 000.
+-----
+0010110100202202002022020010020220200202202001001
+-----
+00101101002022020020220200100202202002022020010010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0010010.
+-----
+00101101002022020020220200100202202002022020010011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+00101101002022020020220200100202202002022020010012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002022020010020220200202202001002
+-----
+00101101002022020020220200100202202002022020010020
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 01002022020020220200100202202002022020010020.
+-----
+00101101002022020020220200100202202002022020010021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020020220200100202202002022020010022
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 22 which is not a palindrome.
+-----
+001011010020220200202202001002022020020220200101
+-----
+0010110100202202002022020010020220200202202001010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 01010.
+-----
+0010110100202202002022020010020220200202202001011
+-----
+00101101002022020020220200100202202002022020010110
+-----
+001011010020220200202202001002022020020220200101100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+001011010020220200202202001002022020020220200101101
+-----
+0010110100202202002022020010020220200202202001011010
+-----
+00101101002022020020220200100202202002022020010110100
+New possible return to the marker: 0010110100202202002022020010020220200202202
+-----
+00101101002022020020220200100202202002022020010110101
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 10101.
+-----
+00101101002022020020220200100202202002022020010110102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002022020010020220200202202001011011
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 1011011.
+-----
+0010110100202202002022020010020220200202202001011012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001002022020020220200101102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020020220200100202202002022020010111
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 111.
+-----
+00101101002022020020220200100202202002022020010112
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002022020010020220200202202001012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001002022020020220200102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020020220200100202202002022020011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+00101101002022020020220200100202202002022020012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002022020010020220200202202002
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0020220200202202002.
+-----
+001011010020220200202202001002022020020220201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202202001002022020020220202
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 20202.
+-----
+00101101002022020020220200100202202002022021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020020220200100202202002022022
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 2022022.
+-----
+001011010020220200202202001002022020020221
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202202001002022020020222
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 222.
+-----
+001011010020220200202202001002022020021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202202001002022020022
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 22 which is not a palindrome.
+-----
+0010110100202202002022020010020220201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202002022020010020220202
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 20202.
+-----
+001011010020220200202202001002022021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220200202202001002022022
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 2022022.
+-----
+0010110100202202002022020010020221
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202002022020010020222
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 222.
+-----
+0010110100202202002022020010021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202002022020010022
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 22 which is not a palindrome.
+-----
+00101101002022020020220200101
+-----
+001011010020220200202202001010
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 01010.
+-----
+001011010020220200202202001011
+-----
+0010110100202202002022020010110
+-----
+00101101002022020020220200101100
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 00 which is not a palindrome.
+-----
+00101101002022020020220200101101
+-----
+001011010020220200202202001011010
+-----
+0010110100202202002022020010110100
+New possible return to the marker: 001011010020220200202202
+-----
+0010110100202202002022020010110101
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 10101.
+-----
+0010110100202202002022020010110102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001011011
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 1011011.
+-----
+001011010020220200202202001011012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020020220200101102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002022020010111
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 111.
+-----
+0010110100202202002022020010112
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202001012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+00101101002022020020220200102
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+0010110100202202002022020011
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 11 which is not a palindrome.
+-----
+0010110100202202002022020012
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+001011010020220200202202002
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 0020220200202202002.
+-----
+00101101002022020020220201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020020220202
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 20202.
+-----
+0010110100202202002022021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+0010110100202202002022022
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 2022022.
+-----
+00101101002022020020221
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020020222
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 222.
+-----
+00101101002022020021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022020022
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 22 which is not a palindrome.
+-----
+001011010020220201
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020220202
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 20202.
+-----
+00101101002022021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+00101101002022022
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 2022022.
+-----
+001011010020221
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010020222
+Precondition: PowerSuffixCondition(16,7)
+This word contains the 16/7-power 222.
+-----
+001011010021
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+001011010022
+Precondition: RichnessAndCompatibilityCondition(0010110100,['001011010020220200202202001002'])
+This word is incompatible with the marker, as their longest common prefix does not contain 22.
+By a backtracking search for complete returns to the marker 0010110100 in z compatible with 001011010020220200202202001002, the only possible return words to the marker in z are the following:
+['00101101', '00101101002', '0010110100202202', '001011010020220200202202', '0010110100202202002022020010020220200202202']
+
+These are exactly the blocks of pi.
+
+--------------------------------------------------------------
+
+
+------ Example A.1 ------
+
+We search for all possible complete return words w to 0 over 5 letters such that phi^2(w) is rich and w contains no 16/7-persistent bookended repetition with respect to phi and pihat with tipping point at most 100.
+
+-----
+00
+Precondition: PersistentCondition(16,7)
+This word contains the factor 00, and the corresponding bookended repetition (,00,,0) is 16/7-persistent with tipping point 5.
+-----
+01
+-----
+010
+New possible return to the marker: 01
+-----
+011
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+012
+-----
+0120
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0121
+-----
+01210
+New possible return to the marker: 0121
+-----
+01211
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+01212
+Precondition: PersistentCondition(16,7)
+This word contains the factor 1212, and the corresponding bookended repetition (,1212,,12) is 16/7-persistent with tipping point 19.
+-----
+01213
+Precondition: PersistentCondition(16,7)
+This word contains the factor 213, and the corresponding bookended repetition (2,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+01214
+Precondition: PersistentCondition(16,7)
+This word contains the factor 214, and the corresponding bookended repetition (2,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+0122
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+0123
+Precondition: PersistentCondition(16,7)
+This word contains the factor 123, and the corresponding bookended repetition (1,2,3,2) is 16/7-persistent with tipping point 5.
+-----
+0124
+Precondition: PersistentCondition(16,7)
+This word contains the factor 124, and the corresponding bookended repetition (1,2,4,2) is 16/7-persistent with tipping point 5.
+-----
+013
+-----
+0130
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0131
+-----
+01310
+New possible return to the marker: 0131
+-----
+01311
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+01312
+Precondition: PersistentCondition(16,7)
+This word contains the factor 312, and the corresponding bookended repetition (3,1,2,1) is 16/7-persistent with tipping point 5.
+-----
+01313
+Precondition: PersistentCondition(16,7)
+This word contains the factor 313, and the corresponding bookended repetition (3,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+01314
+Precondition: PersistentCondition(16,7)
+This word contains the factor 314, and the corresponding bookended repetition (3,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+0132
+-----
+01320
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+01321
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+01322
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+01323
+Precondition: PersistentCondition(16,7)
+This word contains the factor 323, and the corresponding bookended repetition (3,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+01324
+Precondition: PersistentCondition(16,7)
+This word contains the factor 324, and the corresponding bookended repetition (3,2,4,2) is 16/7-persistent with tipping point 3.
+-----
+0133
+Precondition: PersistentCondition(16,7)
+This word contains the factor 33, and the corresponding bookended repetition (,33,,3) is 16/7-persistent with tipping point 14.
+-----
+0134
+Precondition: PersistentCondition(16,7)
+This word contains the factor 134, and the corresponding bookended repetition (1,3,4,3) is 16/7-persistent with tipping point 5.
+-----
+014
+-----
+0140
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0141
+-----
+01410
+New possible return to the marker: 0141
+-----
+01411
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+01412
+Precondition: PersistentCondition(16,7)
+This word contains the factor 412, and the corresponding bookended repetition (4,1,2,1) is 16/7-persistent with tipping point 5.
+-----
+01413
+Precondition: PersistentCondition(16,7)
+This word contains the factor 413, and the corresponding bookended repetition (4,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+01414
+Precondition: PersistentCondition(16,7)
+This word contains the factor 414, and the corresponding bookended repetition (4,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+0142
+-----
+01420
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+01421
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+01422
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+01423
+Precondition: PersistentCondition(16,7)
+This word contains the factor 423, and the corresponding bookended repetition (4,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+01424
+Precondition: PersistentCondition(16,7)
+This word contains the factor 424, and the corresponding bookended repetition (4,2,4,2) is 16/7-persistent with tipping point 3.
+-----
+0143
+-----
+01430
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+01431
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 1 which is not a palindrome.
+-----
+01432
+Precondition: PersistentCondition(16,7)
+This word contains the factor 432, and the corresponding bookended repetition (4,3,2,3) is 16/7-persistent with tipping point 2.
+-----
+01433
+Precondition: PersistentCondition(16,7)
+This word contains the factor 33, and the corresponding bookended repetition (,33,,3) is 16/7-persistent with tipping point 14.
+-----
+01434
+Precondition: PersistentCondition(16,7)
+This word contains the factor 434, and the corresponding bookended repetition (4,3,4,3) is 16/7-persistent with tipping point 1.
+-----
+0144
+-----
+01440
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+01441
+Precondition: PersistentCondition(16,7)
+This word contains the factor 1441, and the corresponding bookended repetition (1,44,1,4) is 16/7-persistent with tipping point 6.
+-----
+01442
+Precondition: PersistentCondition(16,7)
+This word contains the factor 442, and the corresponding bookended repetition (,44,2,4) is 16/7-persistent with tipping point 6.
+-----
+01443
+Precondition: PersistentCondition(16,7)
+This word contains the factor 443, and the corresponding bookended repetition (,44,3,4) is 16/7-persistent with tipping point 1.
+-----
+01444
+Precondition: PersistentCondition(16,7)
+This word contains the factor 444, and the corresponding bookended repetition (,444,,4) is 16/7-persistent with tipping point 0.
+-----
+02
+-----
+020
+New possible return to the marker: 02
+-----
+021
+-----
+0210
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0211
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+0212
+Precondition: PersistentCondition(16,7)
+This word contains the factor 212, and the corresponding bookended repetition (2,1,2,1) is 16/7-persistent with tipping point 5.
+-----
+0213
+Precondition: PersistentCondition(16,7)
+This word contains the factor 213, and the corresponding bookended repetition (2,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+0214
+Precondition: PersistentCondition(16,7)
+This word contains the factor 214, and the corresponding bookended repetition (2,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+022
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+023
+-----
+0230
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0231
+-----
+02310
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+02311
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+02312
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+02313
+Precondition: PersistentCondition(16,7)
+This word contains the factor 313, and the corresponding bookended repetition (3,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+02314
+Precondition: PersistentCondition(16,7)
+This word contains the factor 314, and the corresponding bookended repetition (3,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+0232
+-----
+02320
+New possible return to the marker: 0232
+-----
+02321
+Precondition: PersistentCondition(16,7)
+This word contains the factor 321, and the corresponding bookended repetition (3,2,1,2) is 16/7-persistent with tipping point 5.
+-----
+02322
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+02323
+Precondition: PersistentCondition(16,7)
+This word contains the factor 323, and the corresponding bookended repetition (3,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+02324
+Precondition: PersistentCondition(16,7)
+This word contains the factor 324, and the corresponding bookended repetition (3,2,4,2) is 16/7-persistent with tipping point 3.
+-----
+0233
+Precondition: PersistentCondition(16,7)
+This word contains the factor 33, and the corresponding bookended repetition (,33,,3) is 16/7-persistent with tipping point 14.
+-----
+0234
+Precondition: PersistentCondition(16,7)
+This word contains the factor 234, and the corresponding bookended repetition (2,3,4,3) is 16/7-persistent with tipping point 2.
+-----
+024
+-----
+0240
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0241
+-----
+02410
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+02411
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+02412
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+02413
+Precondition: PersistentCondition(16,7)
+This word contains the factor 413, and the corresponding bookended repetition (4,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+02414
+Precondition: PersistentCondition(16,7)
+This word contains the factor 414, and the corresponding bookended repetition (4,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+0242
+-----
+02420
+New possible return to the marker: 0242
+-----
+02421
+Precondition: PersistentCondition(16,7)
+This word contains the factor 421, and the corresponding bookended repetition (4,2,1,2) is 16/7-persistent with tipping point 5.
+-----
+02422
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+02423
+Precondition: PersistentCondition(16,7)
+This word contains the factor 423, and the corresponding bookended repetition (4,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+02424
+Precondition: PersistentCondition(16,7)
+This word contains the factor 424, and the corresponding bookended repetition (4,2,4,2) is 16/7-persistent with tipping point 3.
+-----
+0243
+-----
+02430
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+02431
+Precondition: PersistentCondition(16,7)
+This word contains the factor 431, and the corresponding bookended repetition (4,3,1,3) is 16/7-persistent with tipping point 5.
+-----
+02432
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 2 which is not a palindrome.
+-----
+02433
+Precondition: PersistentCondition(16,7)
+This word contains the factor 33, and the corresponding bookended repetition (,33,,3) is 16/7-persistent with tipping point 14.
+-----
+02434
+Precondition: PersistentCondition(16,7)
+This word contains the factor 434, and the corresponding bookended repetition (4,3,4,3) is 16/7-persistent with tipping point 1.
+-----
+0244
+Precondition: PersistentCondition(16,7)
+This word contains the factor 244, and the corresponding bookended repetition (2,44,,4) is 16/7-persistent with tipping point 6.
+-----
+03
+-----
+030
+New possible return to the marker: 03
+-----
+031
+-----
+0310
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0311
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+0312
+Precondition: PersistentCondition(16,7)
+This word contains the factor 312, and the corresponding bookended repetition (3,1,2,1) is 16/7-persistent with tipping point 5.
+-----
+0313
+Precondition: PersistentCondition(16,7)
+This word contains the factor 313, and the corresponding bookended repetition (3,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+0314
+Precondition: PersistentCondition(16,7)
+This word contains the factor 314, and the corresponding bookended repetition (3,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+032
+-----
+0320
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0321
+Precondition: PersistentCondition(16,7)
+This word contains the factor 321, and the corresponding bookended repetition (3,2,1,2) is 16/7-persistent with tipping point 5.
+-----
+0322
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+0323
+Precondition: PersistentCondition(16,7)
+This word contains the factor 323, and the corresponding bookended repetition (3,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+0324
+Precondition: PersistentCondition(16,7)
+This word contains the factor 324, and the corresponding bookended repetition (3,2,4,2) is 16/7-persistent with tipping point 3.
+-----
+033
+Precondition: PersistentCondition(16,7)
+This word contains the factor 33, and the corresponding bookended repetition (,33,,3) is 16/7-persistent with tipping point 14.
+-----
+034
+-----
+0340
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0341
+-----
+03410
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+03411
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+03412
+Precondition: PersistentCondition(16,7)
+This word contains the factor 412, and the corresponding bookended repetition (4,1,2,1) is 16/7-persistent with tipping point 5.
+-----
+03413
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 3 which is not a palindrome.
+-----
+03414
+Precondition: PersistentCondition(16,7)
+This word contains the factor 414, and the corresponding bookended repetition (4,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+0342
+-----
+03420
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+03421
+Precondition: PersistentCondition(16,7)
+This word contains the factor 421, and the corresponding bookended repetition (4,2,1,2) is 16/7-persistent with tipping point 5.
+-----
+03422
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+03423
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 3 which is not a palindrome.
+-----
+03424
+Precondition: PersistentCondition(16,7)
+This word contains the factor 424, and the corresponding bookended repetition (4,2,4,2) is 16/7-persistent with tipping point 3.
+-----
+0343
+-----
+03430
+New possible return to the marker: 0343
+-----
+03431
+Precondition: PersistentCondition(16,7)
+This word contains the factor 431, and the corresponding bookended repetition (4,3,1,3) is 16/7-persistent with tipping point 5.
+-----
+03432
+Precondition: PersistentCondition(16,7)
+This word contains the factor 432, and the corresponding bookended repetition (4,3,2,3) is 16/7-persistent with tipping point 2.
+-----
+03433
+Precondition: PersistentCondition(16,7)
+This word contains the factor 33, and the corresponding bookended repetition (,33,,3) is 16/7-persistent with tipping point 14.
+-----
+03434
+Precondition: PersistentCondition(16,7)
+This word contains the factor 434, and the corresponding bookended repetition (4,3,4,3) is 16/7-persistent with tipping point 1.
+-----
+0344
+Precondition: PersistentCondition(16,7)
+This word contains the factor 344, and the corresponding bookended repetition (3,44,,4) is 16/7-persistent with tipping point 1.
+-----
+04
+-----
+040
+New possible return to the marker: 04
+-----
+041
+-----
+0410
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0411
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 6.
+-----
+0412
+Precondition: PersistentCondition(16,7)
+This word contains the factor 412, and the corresponding bookended repetition (4,1,2,1) is 16/7-persistent with tipping point 5.
+-----
+0413
+Precondition: PersistentCondition(16,7)
+This word contains the factor 413, and the corresponding bookended repetition (4,1,3,1) is 16/7-persistent with tipping point 5.
+-----
+0414
+Precondition: PersistentCondition(16,7)
+This word contains the factor 414, and the corresponding bookended repetition (4,1,4,1) is 16/7-persistent with tipping point 5.
+-----
+042
+-----
+0420
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0421
+Precondition: PersistentCondition(16,7)
+This word contains the factor 421, and the corresponding bookended repetition (4,2,1,2) is 16/7-persistent with tipping point 5.
+-----
+0422
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 8.
+-----
+0423
+Precondition: PersistentCondition(16,7)
+This word contains the factor 423, and the corresponding bookended repetition (4,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+0424
+Precondition: PersistentCondition(16,7)
+This word contains the factor 424, and the corresponding bookended repetition (4,2,4,2) is 16/7-persistent with tipping point 3.
+-----
+043
+-----
+0430
+Precondition: RichnessCondition()
+This word is not rich, as it contains a complete return to 0 which is not a palindrome.
+-----
+0431
+Precondition: PersistentCondition(16,7)
+This word contains the factor 431, and the corresponding bookended repetition (4,3,1,3) is 16/7-persistent with tipping point 5.
+-----
+0432
+Precondition: PersistentCondition(16,7)
+This word contains the factor 432, and the corresponding bookended repetition (4,3,2,3) is 16/7-persistent with tipping point 2.
+-----
+0433
+Precondition: PersistentCondition(16,7)
+This word contains the factor 33, and the corresponding bookended repetition (,33,,3) is 16/7-persistent with tipping point 14.
+-----
+0434
+Precondition: PersistentCondition(16,7)
+This word contains the factor 434, and the corresponding bookended repetition (4,3,4,3) is 16/7-persistent with tipping point 1.
+-----
+044
+-----
+0440
+New possible return to the marker: 044
+-----
+0441
+Precondition: PersistentCondition(16,7)
+This word contains the factor 0441, and the corresponding bookended repetition (0,44,1,4) is 16/7-persistent with tipping point 10.
+-----
+0442
+Precondition: PersistentCondition(16,7)
+This word contains the factor 442, and the corresponding bookended repetition (,44,2,4) is 16/7-persistent with tipping point 6.
+-----
+0443
+Precondition: PersistentCondition(16,7)
+This word contains the factor 443, and the corresponding bookended repetition (,44,3,4) is 16/7-persistent with tipping point 1.
+-----
+0444
+Precondition: PersistentCondition(16,7)
+This word contains the factor 444, and the corresponding bookended repetition (,444,,4) is 16/7-persistent with tipping point 0.
+
+The returns to 0 satisfying the given conditions are the following:
+['01', '0121', '0131', '0141', '02', '0232', '0242', '03', '0343', '04', '044']
+
+--------------------------------------------------------------
+
+
+------ Example A.2 ------
+
+We aim to show that there are only finitely many words over 4 letters such that phi^2(w) is rich and w contains no 16/7-persistent bookended repetition with respect to phi and pihat with tipping point at most 100.
+
+-----
+0
+-----
+00
+Precondition: PersistentCondition(16,7)
+This word contains the factor 00, and the corresponding bookended repetition (,00,,0) is 16/7-persistent with tipping point 4.
+-----
+01
+-----
+010
+-----
+0100
+Precondition: PersistentCondition(16,7)
+This word contains the factor 00, and the corresponding bookended repetition (,00,,0) is 16/7-persistent with tipping point 4.
+-----
+0101
+Precondition: PersistentCondition(16,7)
+This word contains the factor 0101, and the corresponding bookended repetition (,0101,,01) is 16/7-persistent with tipping point 7.
+-----
+0102
+Precondition: PersistentCondition(16,7)
+This word contains the factor 02, and the corresponding bookended repetition (,0,2,0) is 16/7-persistent with tipping point 4.
+-----
+0103
+Precondition: PersistentCondition(16,7)
+This word contains the factor 03, and the corresponding bookended repetition (,0,3,0) is 16/7-persistent with tipping point 4.
+-----
+011
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 5.
+-----
+012
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 010201030102010401020103010440103.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+013
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 010201030102010401020103010440440103.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+02
+Precondition: PersistentCondition(16,7)
+This word contains the factor 02, and the corresponding bookended repetition (,0,2,0) is 16/7-persistent with tipping point 4.
+-----
+03
+Precondition: PersistentCondition(16,7)
+This word contains the factor 03, and the corresponding bookended repetition (,0,3,0) is 16/7-persistent with tipping point 4.
+-----
+1
+-----
+10
+-----
+100
+Precondition: PersistentCondition(16,7)
+This word contains the factor 00, and the corresponding bookended repetition (,00,,0) is 16/7-persistent with tipping point 4.
+-----
+101
+-----
+1010
+Precondition: PersistentCondition(16,7)
+This word contains the factor 1010, and the corresponding bookended repetition (,1010,,10) is 16/7-persistent with tipping point 7.
+-----
+1011
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 5.
+-----
+1012
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 01020104010201030102010401020103010440103.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+1013
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 01020104010201030102010401020103010440440103.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+102
+Precondition: PersistentCondition(16,7)
+This word contains the factor 02, and the corresponding bookended repetition (,0,2,0) is 16/7-persistent with tipping point 4.
+-----
+103
+Precondition: PersistentCondition(16,7)
+This word contains the factor 03, and the corresponding bookended repetition (,0,3,0) is 16/7-persistent with tipping point 4.
+-----
+11
+Precondition: PersistentCondition(16,7)
+This word contains the factor 11, and the corresponding bookended repetition (,11,,1) is 16/7-persistent with tipping point 5.
+-----
+12
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 0102010401020103010440103.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+13
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 0102010401020103010440440103.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+2
+-----
+20
+Precondition: PersistentCondition(16,7)
+This word contains the factor 20, and the corresponding bookended repetition (2,0,,0) is 16/7-persistent with tipping point 4.
+-----
+21
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 0102010301044010301020104.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+22
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 13.
+-----
+23
+-----
+230
+Precondition: PersistentCondition(16,7)
+This word contains the factor 30, and the corresponding bookended repetition (3,0,,0) is 16/7-persistent with tipping point 4.
+-----
+231
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 010201030104401030102010301044044010301020104.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+232
+-----
+2320
+Precondition: PersistentCondition(16,7)
+This word contains the factor 20, and the corresponding bookended repetition (2,0,,0) is 16/7-persistent with tipping point 4.
+-----
+2321
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 01020103010440103010201030104404401030102010301044010301020104.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+2322
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 13.
+-----
+2323
+Precondition: PersistentCondition(16,7)
+This word contains the factor 323, and the corresponding bookended repetition (3,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+233
+Precondition: PersistentCondition(16,7)
+This word contains the factor 233, and the corresponding bookended repetition (2,33,,3) is 16/7-persistent with tipping point 1.
+-----
+3
+-----
+30
+Precondition: PersistentCondition(16,7)
+This word contains the factor 30, and the corresponding bookended repetition (3,0,,0) is 16/7-persistent with tipping point 4.
+-----
+31
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 0102010301044044010301020104.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+32
+-----
+320
+Precondition: PersistentCondition(16,7)
+This word contains the factor 20, and the corresponding bookended repetition (2,0,,0) is 16/7-persistent with tipping point 4.
+-----
+321
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 010201030104404401030102010301044010301020104.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+322
+Precondition: PersistentCondition(16,7)
+This word contains the factor 22, and the corresponding bookended repetition (,22,,2) is 16/7-persistent with tipping point 13.
+-----
+323
+Precondition: PersistentCondition(16,7)
+This word contains the factor 323, and the corresponding bookended repetition (3,2,3,2) is 16/7-persistent with tipping point 3.
+-----
+33
+-----
+330
+Precondition: PersistentCondition(16,7)
+This word contains the factor 30, and the corresponding bookended repetition (3,0,,0) is 16/7-persistent with tipping point 4.
+-----
+331
+Postcondition: RichnessCondition()
+The image of this word under the given morphism is 010201030104404401030102010301044044010301020104.
+This word is not rich, as it contains a complete return to 4 which is not a palindrome.
+-----
+332
+Precondition: PersistentCondition(16,7)
+This word contains the factor 332, and the corresponding bookended repetition (,33,2,3) is 16/7-persistent with tipping point 1.
+-----
+333
+Precondition: PersistentCondition(16,7)
+This word contains the factor 333, and the corresponding bookended repetition (,333,,3) is 16/7-persistent with tipping point 0.
+
+By a backtracking search, the longest word satisfying the given conditions has length 3.
+
+--------------------------------------------------------------
+
+Total time taken: 171.0739459991455

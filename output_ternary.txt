@@ -1,0 +1,116 @@
+
+------ Proof of Structure Theorem for 16/7-power-free rich words over 3 letters ------
+
+------ Proof of Outer Layer (Lemma 5.2) ------
+
+Let z be a recurrent 16/7-power-free rich word over 3 letters.
+
+We first use a backtracking search to show that there are only finitely many 16/7-power-free ternary rich words that contain no permutation of P=AADAACCBCCAD.
+
+Initial backtracking search completed.
+
+By the initial backtracking search, the longest 16/7-power-free ternary rich word with no permutation of P=AADAACCBCCAD has length 1348.
+
+So by permuting the letters and taking a suffix if necessary, we may assume that z contains P=AADAACCBCCAD.
+By a backtracking search for complete returns to the marker p=AADAA00 in z compatible with P=AADAACCBCCAD, the only possible return words to p=AADAA00 in z are the following:
+['0010110100101101002001011010010110100202202', '001011010010110100200101101001011010020220200202202', '0010110100101101002001011010010110100202202002022020010020220200202202', '00101101001011010020010110100101101002022020020220200100202202002022020010110100202202002022020010020220200202202', '001011010010110100200101101001011010020220200202202001002022020020220200101101002022020020220200100202202002022020010110100101101002022020020220200100202202002022020010110100202202002022020010020220200202202']
+
+These are exactly the blocks of pihat.
+
+------ Outer Layer (Lemma 5.2) confirmed!  We have z=pihat(x) for some infinite word x. ------
+
+Total time taken for outer layers: 477.15464210510254
+
+
+------ Proof of Inner Layers (Lemma 5.3) ------
+
+Consider a recurrent word x such that phi^2(x) is rich and x contains no 16/7-persistent bookended repetition with respect to phi and pi_hat.
+
+We see that x contains 0, as the longest word with no 0 whose image under phi^2 is rich and which contains no 16/7-persistent bookended repetition with respect to phi and pi_hat has length 3.
+The largest tipping point of a 16/7-persistent repetition encountered in this search was 19.
+
+By a backtracking search for complete returns to 0 in x, the only possible return words to 0 in x are the following:
+['01', '0121', '0131', '0141', '02', '0232', '0242', '03', '0343', '04', '044']
+
+There are 15 maximal compatible subsets of S, each corresponding to a morphism listed below:
+psi_1: 0->01, 1->0121, 2->0131, 3->0141
+psi_2: 0->01, 1->0121, 2->03, 3->0141
+psi_3: 0->01, 1->0121, 2->03, 3->0343
+psi_4: 0->01, 1->02, 2->0131, 3->0141
+psi_5: 0->01, 1->02, 2->0131, 3->0242
+psi_6: 0->01, 1->02, 2->0232, 3->0141
+psi_7: 0->01, 1->02, 2->03, 3->0141
+psi_8: 0->01, 1->02, 2->0232, 3->0242
+psi_9: 0->01, 1->02, 2->03, 3->0242
+psi_10: 0->01, 1->02, 2->03, 3->0343
+psi_11: 0->01, 1->0121, 2->0131, 3->04, 4->044
+psi_12: 0->01, 1->0121, 2->03, 3->04, 4->044
+psi_13: 0->01, 1->02, 2->0131, 3->04, 4->044
+psi_14: 0->01, 1->02, 2->0232, 3->04, 4->044
+psi_15: 0->01, 1->02, 2->03, 3->04, 4->044
+
+Now checking psi_1: 0->01, 1->0121, 2->0131, 3->0141.
+The longest word y such that phi^2(psi_1(y)) is rich and psi_1(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 8.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 13.
+
+Now checking psi_2: 0->01, 1->0121, 2->03, 3->0141.
+The longest word y such that phi^2(psi_2(y)) is rich and psi_2(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 4.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 11.
+
+Now checking psi_3: 0->01, 1->0121, 2->03, 3->0343.
+The longest word y such that phi^2(psi_3(y)) is rich and psi_3(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 9.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 13.
+
+Now checking psi_4: 0->01, 1->02, 2->0131, 3->0141.
+The longest word y such that phi^2(psi_4(y)) is rich and psi_4(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 3.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 13.
+
+Now checking psi_5: 0->01, 1->02, 2->0131, 3->0242.
+The longest word y such that phi^2(psi_5(y)) is rich and psi_5(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 7.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 13.
+
+Now checking psi_6: 0->01, 1->02, 2->0232, 3->0141.
+The longest word y such that phi^2(psi_6(y)) is rich and psi_6(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 7.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 9.
+
+Now checking psi_7: 0->01, 1->02, 2->03, 3->0141.
+The longest word y such that phi^2(psi_7(y)) is rich and psi_7(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 8.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 18.
+
+Now checking psi_8: 0->01, 1->02, 2->0232, 3->0242.
+The longest word y such that phi^2(psi_8(y)) is rich and psi_8(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 11.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 11.
+
+Now checking psi_9: 0->01, 1->02, 2->03, 3->0242.
+The longest word y such that phi^2(psi_9(y)) is rich and psi_9(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 8.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 18.
+
+Now checking psi_10: 0->01, 1->02, 2->03, 3->0343.
+The longest word y such that phi^2(psi_10(y)) is rich and psi_10(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 29.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 18.
+
+Now checking psi_11: 0->01, 1->0121, 2->0131, 3->04, 4->044.
+The longest word y such that phi^2(psi_11(y)) is rich and psi_11(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 9.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 13.
+
+Now checking psi_12: 0->01, 1->0121, 2->03, 3->04, 4->044.
+The longest word y such that phi^2(psi_12(y)) is rich and psi_12(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 15.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 13.
+
+Now checking psi_13: 0->01, 1->02, 2->0131, 3->04, 4->044.
+The longest word y such that phi^2(psi_13(y)) is rich and psi_13(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 34.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 13.
+
+Now checking psi_14: 0->01, 1->02, 2->0232, 3->04, 4->044.
+The longest word y such that phi^2(psi_14(y)) is rich and psi_14(y) contains no 16/7-persistent bookended repetition with tipping point at most 100 has length 34.
+The largest tipping point of a 16/7-persistent repetition encountered in the search was 20.
+
+psi_15:0->01, 1->02, 2->03, 3->04, 4->044 is equal to phi.
+
+The largest tipping point of a 16/7-persisten repetition encountered in the entire proof of the inner layers was 20.
+
+------ Inner Layers (Lemma 5.3) confirmed! ------
+
+Time taken for inner layers: 1.698976993560791
+
+Total time taken: 478.85364294052124
